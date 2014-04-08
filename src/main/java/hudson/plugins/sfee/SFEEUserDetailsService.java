@@ -2,19 +2,18 @@ package hudson.plugins.sfee;
 
 import hudson.plugins.sfee.webservice.ProjectSoapRow;
 import hudson.plugins.sfee.webservice.UserSoapDO;
-
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataRetrievalFailureException;
-import org.springframework.security.BadCredentialsException;
-import org.springframework.security.GrantedAuthority;
-import org.springframework.security.GrantedAuthorityImpl;
-import org.springframework.security.userdetails.User;
-import org.springframework.security.userdetails.UserDetails;
-import org.springframework.security.userdetails.UserDetailsService;
-import org.springframework.security.userdetails.UsernameNotFoundException;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class SFEEUserDetailsService implements UserDetailsService {
 
@@ -46,7 +45,7 @@ public class SFEEUserDetailsService implements UserDetailsService {
 					.toArray(new GrantedAuthority[authorities.size()]);
 
 			return new User(username, password, true, true, true, true,
-					authoritiesArray);
+					Arrays.asList(authoritiesArray));
 		} catch (BadCredentialsException e) {
 			throw e;
 		} catch (Exception e) {

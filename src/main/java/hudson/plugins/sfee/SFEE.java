@@ -19,8 +19,8 @@ import java.rmi.RemoteException;
 
 import javax.xml.parsers.SAXParserFactory;
 import org.apache.axis.AxisFault;
-import org.springframework.security.AuthenticationServiceException;
-import org.springframework.security.BadCredentialsException;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 
 
 public class SFEE {

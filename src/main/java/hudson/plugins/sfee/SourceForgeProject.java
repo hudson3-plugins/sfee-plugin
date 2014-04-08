@@ -31,9 +31,9 @@ import net.sf.json.JSONObject;
 
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
-import org.springframework.security.AccessDeniedException;
-import org.springframework.security.Authentication;
-import org.springframework.security.GrantedAuthority;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 public class SourceForgeProject extends JobProperty<AbstractProject<?, ?>> {
 
@@ -88,7 +88,7 @@ public class SourceForgeProject extends JobProperty<AbstractProject<?, ?>> {
 				if (!Hudson.getInstance().getACL().hasPermission(
 						Hudson.ADMINISTER)) {
 					Authentication auth = Hudson.getAuthentication();
-					GrantedAuthority[] authorities = auth.getAuthorities();
+					Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
 					boolean found = false;
 					for (GrantedAuthority authority : authorities) {
 						found |= authority.getAuthority().equals(

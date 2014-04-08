@@ -10,9 +10,9 @@ import hudson.security.SparseACL;
 import net.sf.json.JSONObject;
 
 import org.kohsuke.stapler.StaplerRequest;
-import org.springframework.security.GrantedAuthority;
-import org.springframework.security.GrantedAuthorityImpl;
-import org.springframework.security.acls.sid.GrantedAuthoritySid;
+import org.springframework.security.acls.domain.GrantedAuthoritySid;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
 
 /**
  * {@link AuthorizationStrategy} that grants control based on owned permissions.
