@@ -12,7 +12,7 @@
     <packaging>hpi</packaging>
     
     <name>SFEE Plugin</name>
-    <version>1.0.5-h-2</version>
+    <version>1.0.5-h-3-SNAPSHOT</version>
     
     <description>
         This plugin integrates Hudson with a Source Forge Enterprise Edition (SFEE) Server
